@@ -34,10 +34,9 @@ class Board:
         stringy_pile += "--------------------\n"
         return stringy_pile
 
-    def apply(self, move):
-        pile_num = move.get_pile()
-        stones = move.get_stones()
-        self._piles[pile_num] = max(self._piles[pile_num] - stones, 0)
+    def apply(self, guess):
+        guess = guess.get_pile()
+        # self._piles[pile_num] = max(self._piles[pile_num] - stones, 0)
         return
 
     def is_empty(self):
