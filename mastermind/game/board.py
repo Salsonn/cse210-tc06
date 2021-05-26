@@ -16,30 +16,21 @@ class Board:
             is_empty            Returns `True` if the board (i.e _piles) contains only zeroes.
     """
     def __init__(self):
-        self._piles = self.__create_piles()
+        self._guess = self.__create_()
 
-    def __create_piles(self):
-        pile_array = []
-        for i in range(random.randint(2,5)):
-            pile_array.append(random.randint(1,9))
-        return pile_array
-    
     def to_string(self):
-        stringy_pile = "--------------------\n"
-        for i in range(len(self._piles)):
-            stringy_pile += (f"{str(i)}: ")
-            for j in range(self._piles[i]):
-                stringy_pile += 'O '
-            stringy_pile += '\n'
-        stringy_pile += "--------------------\n"
-        return stringy_pile
-
-    def apply(self, move):
-        pile_num = move.get_pile()
-        stones = move.get_stones()
-        self._piles[pile_num] = max(self._piles[pile_num] - stones, 0)
-        return
+        text = '\n--------------------'
+        for guess, secret in enumerate(self._guess):
+            #text += (f'\n{guess}: ' + 'O ' * secret)
+            if guess.index() == secret.index():
+                text += 'X'
+            elif guess.index() != secret.index():
+                text += 'O'
+            else:
+                text += '*'
+        text += '\n--------------------'
+        return text
 
     def is_empty(self):
-        if all(i == 0 for i in self._piles):
+        if all(i == 0 for i in self._guess):
             return True
