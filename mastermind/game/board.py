@@ -27,8 +27,10 @@ class Board:
     def to_string(self):
         pass
 
-    def apply(self, move):
-        pass
+    def apply(self, guess):
+        guess = guess.get_pile()
+        # self._piles[pile_num] = max(self._piles[pile_num] - stones, 0)
+        return
 
     def is_empty(self):
         pass
