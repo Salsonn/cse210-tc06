@@ -32,7 +32,7 @@ class Board:
         guess = guess.strip('')
         self.combo_guess = ''
         self.correctness = ''
-        
+
         for i in self._combination:
             self.combo_guess += f'{i}'
 
@@ -47,7 +47,8 @@ class Board:
         return self.correctness
     
     def is_empty(self):
-        if self.correctness == self.combo_guess:
+        print(self.correctness)
+        if self.correctness == 'xxxx':
             return True
         else:
             return False
