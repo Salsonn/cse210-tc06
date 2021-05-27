@@ -29,10 +29,21 @@ class Board:
 
     def apply(self, guess):
         guess = guess.get_pile()
-        # self._piles[pile_num] = max(self._piles[pile_num] - stones, 0)
+        self._piles[pile_num] = max(self._piles[pile_num] - stones, 0)
         return
 
-    def is_empty(self):
-        pass
+    def is_correct(self, guess):
+        guess = guess.strip('')
+        correctness = ''
+        for i in range(len(guess)):
+            if guess[i] in self._combination:
+                if i == self._combination[i]:
+                    correctness += 'x'
+                else:
+                    correctness += 'o'
+            else:
+                correctness += '*'
+            
 
 Board()
+Board.is_correct('5555')
