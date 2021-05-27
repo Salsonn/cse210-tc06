@@ -23,9 +23,6 @@ class Board:
         for _ in range(4):
             combo.append(random.randint(1, 9))
         return combo
-    
-    def to_string(self):
-        pass
 
     def apply(self, guess):
         guess = str(guess.get_pile())
@@ -46,8 +43,13 @@ class Board:
                 self.correctness += '*'
         return self.correctness
     
+    def to_string(self):
+        try:
+            return self.correctness
+        except:
+            return '****'
+
     def is_empty(self):
-        print(self.correctness)
         if self.correctness == 'xxxx':
             return True
         else:
