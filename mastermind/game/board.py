@@ -10,10 +10,10 @@ class Board:
             _piles - List - Holds the number of Os in each row.
         
         Methods:
-            __create_piles      Generates random board size and values.
-            to_string           Converts the board data to a print()-able format.
-            apply               Removes Os from the play board according to user input
-            is_empty            Returns `True` if the board (i.e _piles) contains only zeroes.
+            __create_combination    Generates a random, 4 digit number.
+            to_string               Converts the board data to a print()-able format.
+            apply                   Removes Os from the play board according to user input
+            is_empty                Returns `True` if the board (i.e _piles) contains only zeroes.
     """
     def __init__(self):
         self._combination = self.__create_combination()
@@ -28,11 +28,6 @@ class Board:
         pass
 
     def apply(self, guess):
-        guess = guess.get_pile()
-        self._piles[pile_num] = max(self._piles[pile_num] - stones, 0)
-        return
-
-    def is_correct(self, guess):
         guess = guess.strip('')
         correctness = ''
         for i in range(len(guess)):
@@ -43,7 +38,10 @@ class Board:
                     correctness += 'o'
             else:
                 correctness += '*'
+
+    def numberGuessed(self):
+        return False
             
 
 Board()
-Board.is_correct('5555')
+Board.apply(0, '5555')
