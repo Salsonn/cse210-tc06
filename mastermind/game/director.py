@@ -68,7 +68,7 @@ class Director:
         player = self._roster.get_current()
         self._console.write(f"{player.get_name()}'s turn:")
         guess = Guess(self._console.read_number("What is your guess? "))
-        player.set_move(guess)
+        player.set_guess(guess)
 
     def _do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -78,8 +78,8 @@ class Director:
             self (Director): An instance of Director.
         """
         player = self._roster.get_current()
-        move = player.get_move()
-        self._board.apply(move)
+        guess = player.get_guess()
+        self._board.apply(guess)
  
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 

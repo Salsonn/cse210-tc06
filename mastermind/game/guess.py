@@ -1,12 +1,11 @@
 class Guess:
-    """A maneuver in the game. The responsibility of Move is to keep track of the mark found digits.
+    """The responsibility of Guess is to keep track of the mark found digits.
     
     Stereotype: 
         Information Holder
 
     Attributes:
-        _pile (integer): The pile to remove from.
-        _stones (integer): The number of stones to remove.
+        _number (integer): The opponents number to be referenced.
     """
     def __init__(self, guess):
         """The class constructor.
