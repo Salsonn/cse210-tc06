@@ -17,6 +17,7 @@ class Board:
     """
     def __init__(self):
         self._combination = self.__create_combination()
+        self.is_correct('1234')
 
     def __create_combination(self):
         combo = []
@@ -34,16 +35,20 @@ class Board:
 
     def is_correct(self, guess):
         guess = guess.strip('')
+        combo_guess = ''
         correctness = ''
+        
+        for i in self._combination:
+            combo_guess += f'{i}'
+
         for i in range(len(guess)):
-            if guess[i] in self._combination:
-                if i == self._combination[i]:
+            if guess[i] in combo_guess:
+                if str(self._combination[i]) == guess[i]:
                     correctness += 'x'
                 else:
                     correctness += 'o'
             else:
                 correctness += '*'
-            
+        return correctness
 
 Board()
-Board.is_correct('5555')
