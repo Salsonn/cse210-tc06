@@ -13,7 +13,7 @@ class Board:
             __create_combination    Generates a random, 4 digit number.
             to_string               Converts the board data to a print()-able format.
             apply                   Removes Os from the play board according to user input
-            is_empty                Returns `True` if the board (i.e _piles) contains only zeroes.
+            number_guessed                Returns `True` if the board (i.e _piles) contains only zeroes.
     """
     def __init__(self):
         self._combination = self.__create_combination()
@@ -49,7 +49,7 @@ class Board:
         except:
             return '****'
 
-    def is_empty(self):
+    def number_guessed(self):
         if self.correctness == 'xxxx':
             return True
         else:

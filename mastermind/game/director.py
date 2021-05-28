@@ -88,7 +88,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        if self._board.is_empty():
+        if self._board.number_guessed():
             winner = self._roster.get_current()
             name = winner.get_name()
             print(f"\n{name} won!")
